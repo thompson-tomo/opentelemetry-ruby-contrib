@@ -30,7 +30,5 @@
       "ignoreDeps": ["ruby"]
     }
   ],
-  "labels": [
-    "dependencies"
-  ]
+  "labels": ["dependencies"]
 }

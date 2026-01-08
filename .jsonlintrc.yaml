@@ -1,0 +1,12 @@
+check: true
+continue: true
+duplicate-keys: true
+trailing-newline: true
+quiet: true
+pretty-print: false
+patterns:
+  - "**/*.json"
+  - "!instrumentation/pg/test/fixtures/sql_table_name.json"
+  - "!sampler/xray/test/data/**.json"
+  - "!package-lock.json"
+  - "!**/node_modules"
