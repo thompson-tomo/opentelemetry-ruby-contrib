@@ -4,10 +4,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-module OpenTelemetry
-  module Instrumentation
-    module Ethon
-      VERSION = '0.27.0'
-    end
-  end
-end
+source 'https://rubygems.org'
+
+gem 'toys', '= 0.19.1'
+gem 'toys-release', '= 0.6.0'
