@@ -57,12 +57,13 @@
         "/(^|/)Dockerfile\\.[^/]*$/"
       ],
       "matchStrings": [
-        "FROM\\s+(?<packageName>.+?):(?<depVersion>[^\\s@]+?)-alpine(?<alpineVersion>\\d+(?:\\.\\d+)?(?:\\.\\d+)?(?:-\\w+)?)(?:(@(?<currentDigest>[sha256:]?\\s+)))?.*\\s"
+        "FROM\\s+(?<packageName>.+?):(?<depVersion>[^\\s@]+?)-alpine(?<alpineVersion>\\d+(?:\\.\\d+)?(?:\\.\\d+)?(?:-\\w+)?)(?:(@(?<currentDigest>sha256:\\S+)))?\\s"
       ],
       "datasourceTemplate": "docker",
-      "versioningTemplate": "loose",
+      "versioningTemplate": "semver",
       "currentValueTemplate": "{{depVersion}}",
-      "extractVersionTemplate": "^(?<version>\\d+(?:\\.\\d+)?(?:\\.\\d+)?)-alpine{{alpineVersion}}$"
+      "extractVersionTemplate": "^(?<version>\\d+(?:\\.\\d+)?(?:\\.\\d+)?)-alpine{{alpineVersion}}$",
+      "depTypeTemplate": "docker.image"
     },
     {
       "customType": "regex",
@@ -72,13 +73,14 @@
         "/(^|/)Dockerfile\\.[^/]*$/"
       ],
       "matchStrings": [
-        "FROM\\s+(?<packageName>.+?):(?<depVersion>[^\\s@]+?)-alpine(?<alpineVersion>\\d+(?:\\.\\d+)?(?:\\.\\d+)?(?:-\\w+)?)(?:(@(?<currentDigest>[sha256:]?\\s+)))?.*\\s"
+        "FROM\\s+(?<packageName>.+?):(?<depVersion>[^\\s@]+?)-alpine(?<alpineVersion>\\d+(?:\\.\\d+)?(?:\\.\\d+)?(?:-\\w+)?)(?:(@(?<currentDigest>sha256:\\S+)))?\\s"
       ],
       "datasourceTemplate": "docker",
-      "versioningTemplate": "loose",
+      "versioningTemplate": "semver",
       "currentValueTemplate": "{{alpineVersion}}",
       "extractVersionTemplate": "^{{depVersion}}-alpine(?<version>\\d+(?:\\.\\d+)?(?:\\.\\d+)?)$",
-      "depNameTemplate": "{{packageName}}-alpine"
+      "depNameTemplate": "{{packageName}}-alpine",
+      "depTypeTemplate": "docker.imageOS"
     }
   ],
   "lockFileMaintenance": {
