@@ -53,7 +53,7 @@ def foreach_gem(cmd)
     puts "**** Entering #{dir}"
     Dir.chdir(dir) do
       if defined?(Bundler)
-        Bundler.with_clean_env do
+        Bundler.with_unbundled_env do
           sh(cmd)
         end
       else
