@@ -50,16 +50,7 @@ task default: [:each]
 EXCLUDED_DIRS = %w[vendor]
 
 def foreach_gem(cmd)
-  gemspecs =
-    Dir.glob("**/opentelemetry-*.gemspec")
-       .reject do |path|
-         EXCLUDED_DIRS.any? do |d|
-           path.include?("/#{d}/") || path.start_with?("#{d}/")
-         end
-       end
-       .sort
-
-  gemspecs.each do |gemspec|
+  Dir.glob("**/opentelemetry-*.gemspec") do |gemspec|
     name = File.basename(gemspec, ".gemspec")
     dir = File.dirname(gemspec)
     puts "**** Entering #{dir}"

@@ -81,9 +81,10 @@ jobs:
             .bundle
             ${{ steps.setup.outputs.gem_dir }}/vendor/bundle
             ${{ steps.setup.outputs.gem_dir }}/.bundle
-          key: bundler-${{ runner.os }}-${{ matrix.gem }}-${{ steps.lockhash.outputs.hash }}
+          key: ruby-${{ runner.os }}-${{ matrix.gem }}-${{ steps.lockhash.outputs.hash }}
           restore-keys: |
             bundler-${{ runner.os }}-${{ matrix.gem }}-
+            ruby-${{ runner.os }}-${{ matrix.gem }}-
       - name: Install Tools & Gem Deps
         run: |
           # Always install tools
