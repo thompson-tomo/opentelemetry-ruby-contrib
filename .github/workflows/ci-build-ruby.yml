@@ -88,7 +88,7 @@ jobs:
         run: |
           # Always install tools
           bundle config set path vendor/bundle
-          bundle install --jobs 4 --retry 3 --no-warnings
+          bundle install --jobs 4 --retry 3
 
           # Conditionally install gem deps
           if [ "${{ matrix.gem }}" = "Everything" ]; then
