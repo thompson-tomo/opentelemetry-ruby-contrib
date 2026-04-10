@@ -34,7 +34,7 @@ namespace :each do
   end
 
   task :install do
-    foreach_gem('bundle config set path vendor/bundle && bundle install --jobs 4 --retry 3')
+    foreach_gem('bundle install --jobs 4 --retry 3')
   end
 end
 
