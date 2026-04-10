@@ -84,7 +84,10 @@ jobs:
         with:
           ruby-version: "3.3.11"
       - name: Install Tools
-        run: bundle exec rake install_everything
+        run: |
+          # Install Tools
+          bundle install
+          bundle exec rake install
       - name: YARD
         shell: bash
         run: |
