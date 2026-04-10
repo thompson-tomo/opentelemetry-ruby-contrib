@@ -33,6 +33,7 @@ runs:
       shell: bash
       run: |
         # Select Gems
+        default="${{ inputs.default }}"
         deny='["ci", "deprecated"]'
         default="${{ inputs.default }}"
         labels="${{ steps.label.outputs.all-labels || inputs.default }}"
