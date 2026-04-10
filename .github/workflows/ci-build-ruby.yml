@@ -89,6 +89,7 @@ jobs:
         run: |
           # Always install tools
           bundle config set path vendor/bundle
+          bundle config set clean false
           bundle install --jobs 4 --retry 3
 
           # Conditionally install gem deps
