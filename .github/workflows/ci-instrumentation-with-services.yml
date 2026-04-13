@@ -261,7 +261,7 @@ jobs:
           build: true
     services:
       postgres:
-        image: postgres:14.22@sha256:705a5d5b5836f3fcba0d02c4d281e6a7dd9ed2dd4078640f08a1e1e9896e097d
+        image: postgres:17.9@sha256:7ad98329d513dd497293b951c195ca354274a77f12ddbbbbf85e68a811823d72
         env:
           POSTGRES_PASSWORD: postgres
         ports:
