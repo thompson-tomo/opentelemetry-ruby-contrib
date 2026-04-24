@@ -154,6 +154,7 @@
       versioningTemplate: "ruby",
       currentValueTemplate: "{{depVersion}}",
       depTypeTemplate: "testDependency",
+      rangeStrategy: "in-range-only",
     },
     {
       customType: "regex",
@@ -165,6 +166,7 @@
       datasourceTemplate: "rubygems",
       versioningTemplate: "ruby",
       currentValueTemplate: "{{depVersion}}",
+      rangeStrategy: "bump",
     },
     {
       customType: "regex",
