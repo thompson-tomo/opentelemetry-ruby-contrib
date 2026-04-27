@@ -22,7 +22,7 @@ describe OpenTelemetry::Instrumentation::Trilogy do
       password: password,
       database: database,
       ssl_mode: Trilogy::SSL_VERIFY_CA,
-      sslca: "../../../../../../.docker/infra/mysql/certs/ca.pem"
+      sslca: '../../../../../../.docker/infra/mysql/certs/ca.pem'
     }
   end
   let(:client) do

@@ -14,7 +14,7 @@ ignorePaths:
   - "*.proto"
   - "CODEOWNERS"
   - "*.tt"
-  - "**/tls.cnf"
+  - "**/mysqld.cnf"
 patterns:
   - name: CodeBlock
     pattern: |
