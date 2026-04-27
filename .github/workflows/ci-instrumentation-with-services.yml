@@ -75,7 +75,7 @@ jobs:
         run: docker compose -f test/compose.yml up -d --wait
         working-directory: "${{ steps.inputs.outputs.gem_dir }}"
       - run: |
-          docker exec mysql-mysql-1 mysql -uroot -proot -e "SHOW VARIABLES LIKE 'ssl%';"
+          docker exec test-mysql-1 mysql -uroot -proot -e "SHOW VARIABLES LIKE 'ssl%';"
           openssl verify -CAfile certs/ca.pem certs/server-cert.pem
         working-directory: ${{ steps.inputs.outputs.gem_dir }}
       - name: "Test Ruby 4.0"
