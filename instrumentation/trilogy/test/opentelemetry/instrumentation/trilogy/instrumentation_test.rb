@@ -29,7 +29,7 @@ describe OpenTelemetry::Instrumentation::Trilogy do
     Trilogy.new(driver_options)
   end
 
-  let(:host) { ENV.fetch('TEST_MYSQL_HOST', '127.0.0.1') }
+  let(:host) { 'localhost' }
   let(:port) { ENV.fetch('TEST_MYSQL_PORT', '3306').to_i }
   let(:database) { ENV.fetch('TEST_MYSQL_DB', 'mysql') }
   let(:username) { ENV.fetch('TEST_MYSQL_USER', 'root') }
