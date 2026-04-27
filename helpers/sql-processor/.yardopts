@@ -2,6 +2,8 @@
 --title=OpenTelemetry SQL Processor Instrumentation Helpers
 --markup=markdown
 --main=README.md
+--stats
+--list-undoc
 ./lib/opentelemetry/helpers/**/*.rb
 ./lib/opentelemetry/helpers.rb
 -

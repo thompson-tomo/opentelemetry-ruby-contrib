@@ -1,5 +1,5 @@
 --no-private
---title=OpenTelemetry Excon Instrumentation
+--title=OpenTelemetry gRPC Instrumentation
 --markup=markdown
 --main=README.md
 --stats

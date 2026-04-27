@@ -2,6 +2,8 @@
 --title=OpenTelemetry Propagator Vitess
 --markup=markdown
 --main=README.md
+--stats
+--list-undoc
 ./lib/opentelemetry/propagator/vitess/**/*.rb
 ./lib/opentelemetry/propagator/vitess.rb
 -

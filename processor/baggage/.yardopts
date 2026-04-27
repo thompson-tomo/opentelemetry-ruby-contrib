@@ -2,6 +2,8 @@
 --title=OpenTelemetry Processor Baggage
 --markup=markdown
 --main=README.md
+--stats
+--list-undoc
 ./lib/opentelemetry/processor/baggage/**/*.rb
 ./lib/opentelemetry/processor/baggage.rb
 -
