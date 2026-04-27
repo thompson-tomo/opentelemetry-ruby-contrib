@@ -21,14 +21,15 @@ describe OpenTelemetry::Instrumentation::Trilogy do
       username: username,
       password: password,
       database: database,
-      ssl: false
+      ssl_mode: Trilogy::SSL_VERIFY_CA,
+      sslca: '../../../../../../.docker/infra/mysql/certs/ca.pem'
     }
   end
   let(:client) do
     Trilogy.new(driver_options)
   end
 
-  let(:host) { ENV.fetch('TEST_MYSQL_HOST', '127.0.0.1') }
+  let(:host) { 'localhost' }
   let(:port) { ENV.fetch('TEST_MYSQL_PORT', '3306').to_i }
   let(:database) { ENV.fetch('TEST_MYSQL_DB', 'mysql') }
   let(:username) { ENV.fetch('TEST_MYSQL_USER', 'root') }
