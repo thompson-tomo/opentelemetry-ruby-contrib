@@ -214,6 +214,3 @@ services:
       - "4318:4318"
     depends_on:
       - jaeger
-
-volumes:
-  bundle:
