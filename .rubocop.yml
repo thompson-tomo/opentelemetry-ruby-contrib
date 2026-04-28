@@ -50,6 +50,7 @@ Style/Documentation:
     - "**/*test*"
 Style/DocumentationMethod:
   Enabled: true
+  Severity: warning
   Exclude:
     - "**/test/**/*"
     - "**/*test*"
