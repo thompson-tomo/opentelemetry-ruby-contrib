@@ -2,8 +2,6 @@
 --title=OpenTelemetry Resource Detector Google Cloud Platform
 --markup=markdown
 --main=README.md
---stats
---list-undoc
 ./lib/opentelemetry/resource/detector/**/*.rb
 ./lib/opentelemetry/resource/detector.rb
 -

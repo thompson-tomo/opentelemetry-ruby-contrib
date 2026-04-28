@@ -2,8 +2,6 @@
 --title=OpenTelemetry Sampler XRay
 --markup=markdown
 --main=README.md
---stats
---list-undoc
 ./lib/opentelemetry/sampler/xray/**/*.rb
 ./lib/opentelemetry/sampler/xray.rb
 -

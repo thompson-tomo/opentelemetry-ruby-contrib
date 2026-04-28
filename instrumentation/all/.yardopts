@@ -2,8 +2,6 @@
 --title=OpenTelemetry Instrumentation All-in-one
 --markup=markdown
 --main=README.md
---stats
---list-undoc
 ./lib/opentelemetry/instrumentation/all/**/*.rb
 ./lib/opentelemetry/instrumentation/all.rb
 -

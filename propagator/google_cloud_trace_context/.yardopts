@@ -2,8 +2,6 @@
 --title=OpenTelemetry Propagator Google Cloud Trace Context
 --markup=markdown
 --main=README.md
---stats
---list-undoc
 ./lib/opentelemetry/propagator/google_cloud_trace_context/**/*.rb
 ./lib/opentelemetry/propagator/google_cloud_trace_context.rb
 -
