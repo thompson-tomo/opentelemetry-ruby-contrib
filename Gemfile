@@ -6,6 +6,6 @@
 
 source 'https://rubygems.org'
 
-gem 'rake', '>= 13'
+gem 'rake', '>= 13.0.0'
 gem 'rubocop', '~> 1.86.0'
 gem 'rubocop-performance', '~> 1.26.0'
