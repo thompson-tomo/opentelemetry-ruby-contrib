@@ -1,4 +1,4 @@
-# OpenTelemetry::Sampler::XRay
+# opentelemetry-sampler-xray
 
 The `opentelemetry-sampler-xray` gem contains the AWS X-Ray Remote Sampler for OpenTelemetry.
 
