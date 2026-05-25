@@ -10,7 +10,7 @@ module OpenTelemetry
       module Handlers
         # Handles perform.active_job to generate ingress spans
         class Perform < Default
-          EVENT_NAME = 'process'
+          EVENT_NAME = 'execute'
 
           # Overrides the `Default#start_span` method to create an ingress span
           # and registers it with the current context
@@ -23,16 +23,23 @@ module OpenTelemetry
             job = payload.fetch(:job)
             span_name = span_name(job, EVENT_NAME)
             parent_context = OpenTelemetry.propagation.extract(job.__otel_headers)
-
-            # TODO: Refactor into a propagation strategy
-            propagation_style = @config[:propagation_style]
-            if propagation_style == :child
-              span = tracer.start_span(span_name, with_parent: parent_context, kind: :consumer, attributes: @mapper.call(payload))
-            else
+            job_span_id = OpenTelemetry::Baggage.value("job_span_id", context: parent_context)
+            links = nil
+            
+            if job_span_id
               span_context = OpenTelemetry::Trace.current_span(parent_context).context
-              links = [OpenTelemetry::Trace::Link.new(span_context)] if span_context.valid? && propagation_style == :link
-              span = tracer.start_root_span(span_name, kind: :consumer, attributes: @mapper.call(payload), links: links)
+              job_context = OpenTelemetry::Trace::SpanContext.new(
+                trace_id: span_context.trace_id,
+                span_id: job_span_id,
+                trace_flags: span_context.trace_flags,
+                trace_state: span_context.trace_state,
+                remote: true
+              )
+              
+              links = [OpenTelemetry::Trace::Link.new(job_context)] if job_context.valid?
             end
+
+            span = tracer.start_span(span_name, attributes: @mapper.call(payload), links: links)
 
             { span: span, ctx_token: attach_consumer_context(span, parent_context) }
           end

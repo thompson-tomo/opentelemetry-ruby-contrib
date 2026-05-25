@@ -119,7 +119,11 @@ module OpenTelemetry
                        job.queue_name
                      end
 
-            "#{prefix} #{event_name}"
+            if true
+              "#{event_name} #{job.class.name}"
+            else
+              "#{prefix} #{event_name}"
+            end
           end
         end
       end
