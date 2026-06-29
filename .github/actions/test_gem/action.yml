@@ -138,11 +138,6 @@ runs:
       run: |
         files=$(ruby -e 'puts Dir["coverage/**/.resultset.json"]')
 
-        echo "$files "
-        echo "${files[*]}"
-        echo ${#files[@]}
-        echo ${files[0]}
-
         if [ -z "$files" ]; then
           echo "No coverage files found; skipping coverage check for this runtime."
           exit 0
