@@ -137,7 +137,11 @@ runs:
         MINIMUM_COVERAGE: ${{ inputs.minimum_coverage || 85 }}
       run: |
         shopt -s nullglob
-        files=(./coverage/**/.resultset.json)
+        files=(coverage/**/.resultset.json)
+
+        echo "$files "
+        echo "${files[]}"
+        echo ${#files[@]}
 
         if [ ${#files[@]} -eq 0 ]; then
           echo "No coverage files found; skipping coverage check for this runtime."
