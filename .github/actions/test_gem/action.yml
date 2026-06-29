@@ -136,7 +136,9 @@ runs:
       env:
         MINIMUM_COVERAGE: ${{ inputs.minimum_coverage || 85 }}
       run: |
-        files=($(ls coverage/**/.resultset.json 2>/dev/null))
+        shopt -s nullglob
+        files=(coverage/**/.resultset.json)
+
         if [ ${#files[@]} -eq 0 ]; then
           echo "No coverage files found; skipping coverage check for this runtime."
           exit 0
