@@ -16,8 +16,10 @@ Gem::Specification.new do |spec|
   spec.description = 'gRPC instrumentation for the OpenTelemetry framework'
   spec.homepage    = 'https://github.com/open-telemetry/opentelemetry-ruby-contrib'
   spec.license     = 'Apache-2.0'
+  spec.platform = Gem::Platform::RUBY
 
   spec.required_ruby_version = '>= 3.3'
+  spec.metadata["allowed_ruby_platforms"] = "mri"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
