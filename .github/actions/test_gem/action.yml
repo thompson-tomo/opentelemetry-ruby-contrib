@@ -136,15 +136,14 @@ runs:
       env:
         MINIMUM_COVERAGE: ${{ inputs.minimum_coverage || 85 }}
       run: |
-        shopt -s nullglob
-        files=(coverage/**/.resultset.json)
+        files=$(ruby -e 'puts Dir["coverage/**/.resultset.json"]')
 
         echo "$files "
         echo "${files[*]}"
         echo ${#files[@]}
         echo ${files[0]}
 
-        if [ ${#files[@]} -eq 0 ]; then
+        if [ -z "$files" ]; then
           echo "No coverage files found; skipping coverage check for this runtime."
           exit 0
         fi
