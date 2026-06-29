@@ -140,8 +140,9 @@ runs:
         files=(coverage/**/.resultset.json)
 
         echo "$files "
-        echo "${files[]}"
+        echo "${files[*]}"
         echo ${#files[@]}
+        echo ${files[0]}
 
         if [ ${#files[@]} -eq 0 ]; then
           echo "No coverage files found; skipping coverage check for this runtime."
