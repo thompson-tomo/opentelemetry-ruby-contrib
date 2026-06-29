@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.description = 'LMDB instrumentation for the OpenTelemetry framework'
   spec.homepage    = 'https://github.com/open-telemetry/opentelemetry-ruby-contrib'
   spec.license     = 'Apache-2.0'
+  spec.platform = Gem::Platform::RUBY
 
   spec.files = Dir.glob('lib/**/*.rb') +
                Dir.glob('*.md') +
@@ -28,6 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'opentelemetry-instrumentation-base', '~> 0.25'
 
   if spec.respond_to?(:metadata)
+    spec.metadata["allowed_ruby_platforms"] = "mri"
     spec.metadata['changelog_uri'] = "https://rubydoc.info/gems/#{spec.name}/#{spec.version}/file/CHANGELOG.md"
     spec.metadata['source_code_uri'] = "https://github.com/open-telemetry/opentelemetry-ruby-contrib/tree/#{spec.name}/v#{spec.version}/instrumentation/lmdb"
     spec.metadata['bug_tracker_uri'] = 'https://github.com/open-telemetry/opentelemetry-ruby-contrib/issues'

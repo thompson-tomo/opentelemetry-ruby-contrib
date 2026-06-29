@@ -69,47 +69,11 @@ jobs:
     steps:
       - run: echo "Repository check passed"
   instrumentation:
-    if: ${{ github.repository == 'open-telemetry/opentelemetry-ruby-contrib' }}
     strategy:
       fail-fast: false
       matrix:
         gem:
-          - action_mailer
-          - action_pack
-          - action_view
-          - active_job
-          - active_model_serializers
-          - active_record
-          - active_storage
-          - active_support
-          - anthropic
-          - aws_sdk
-          - aws_lambda
-          - base
-          - concurrent_ruby
-          - delayed_job
-          - ethon
-          - excon
-          - factory_bot
-          - faraday
-          - grape
-          - graphql
-          - grpc
-          - gruf
-          - http
-          - http_client
-          - httpx
-          - koala
           - lmdb
-          - logger
-          - net_http
-          - net_ldap
-          - rack
-          - rails
-          - rake
-          - restclient
-          - rspec
-          - sinatra
         os:
           - ubuntu-24.04
 
