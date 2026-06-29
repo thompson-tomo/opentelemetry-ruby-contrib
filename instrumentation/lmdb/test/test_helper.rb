@@ -4,6 +4,8 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+abort "This gem does not support JRuby" if RUBY_ENGINE == "jruby"
+
 require 'simplecov'
 require 'bundler/setup'
 Bundler.require(:default, :development, :test)
