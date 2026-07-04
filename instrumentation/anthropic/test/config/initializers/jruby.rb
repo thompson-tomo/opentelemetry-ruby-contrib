@@ -7,6 +7,7 @@ return unless spec
 
 # --- 1. Predefine the module tree Anthropic forgot to define ---
 module Anthropic
+  module Beta; end
   module Models
     module Beta; end
     module Messages; end
