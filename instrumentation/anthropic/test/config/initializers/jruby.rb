@@ -2,6 +2,12 @@
 
 return unless defined?(RUBY_ENGINE) && RUBY_ENGINE == "jruby"
 
+require "anthropic"
+
+if defined?(Anthropic::Models::Beta) && !defined?(Anthropic::Beta)
+  Anthropic.const_set(:Beta, Anthropic::Models::Beta)
+end
+
 spec = Gem.loaded_specs["anthropic"]
 return unless spec
 
