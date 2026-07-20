@@ -4,6 +4,9 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+Dir["config/initializers/*.rb"].sort.each { |f| require_relative f }
+require 'anthropic' 
+
 require 'bundler/setup'
 Bundler.require(:default, :development, :test)
 
