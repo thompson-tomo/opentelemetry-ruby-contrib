@@ -23,9 +23,6 @@ instrumentation/active_record/db
 # IDE Settings
 **/.idea/
 
-# rbenv configuration
-.ruby-version
-
 tags
 !**/*/.gitkeep
 

@@ -35,16 +35,14 @@
     },
     {
       description: "Only perform update once both setup ruby and ruby is available. The group size needs to be kept in sync",
-      dependencyDashboardCategory: "Latest Ruby Runtime",
-      groupName: "Latest Ruby-sdk [Patches]",
+      dependencyDashboardCategory: "Ruby Runtime Matrix",
+      groupName: "Ruby-sdk Matrix [Patches]",
       matchDepNames: ["ruby/setup-ruby", "ruby"],
-      matchUpdateTypes: ["!digest", "!major"],
+      matchUpdateTypes: ["patch", "minor"],
       matchFileNames: [
-        ".github/workflows/fossa.yml",
         ".github/workflows/installation-tests.yml",
-        ".github/workflows/release-*.yml",
       ],
-      minimumGroupSize: 11,
+      minimumGroupSize: 2,
       schedule: ["before 6am every weekday"],
     },
     {
@@ -52,11 +50,10 @@
       groupName: "Min Ruby-sdk [Patches]",
       dependencyDashboardCategory: "Min Ruby Runtime",
       matchDepNames: ["ruby/setup-ruby", "ruby"],
-      matchUpdateTypes: ["!digest", "!major"],
+      matchUpdateTypes: ["patch", "minor"],
       matchFileNames: [
         ".github/workflows/ci-checks-local.yml",
         ".github/workflows/ci-markdown-checks.yml",
-        "**/*.gemspec",
         "Dockerfile",
         "examples/**/Dockerfile",
         "**/examples/Dockerfile",
@@ -88,9 +85,7 @@
       dependencyDashboardCategory: "Latest Ruby Runtime",
       matchDepNames: ["ruby"],
       matchFileNames: [
-        ".github/workflows/fossa.yml",
-        ".github/workflows/installation-tests.yml",
-        ".github/workflows/release-*.yml",
+        ".ruby-version"
       ],
       matchUpdateTypes: ["minor", "major"],
       prBodyNotes: [
