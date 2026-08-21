@@ -35,12 +35,10 @@
     },
     {
       description: "Only perform update once both setup ruby and ruby is available. The group size needs to be kept in sync",
-      groupName: "Latest-Ruby-sdk [Patches]",
-      branchTopic: "latest-ruby-sdk",
-      commitMessageTopic: "Latest-Ruby-sdk",
-      commitMessageExtra: "[Patches]",
+      dependencyDashboardCategory: "Latest Ruby Runtime",
+      groupName: "Latest Ruby-sdk [Patches]",
       matchDepNames: ["ruby/setup-ruby", "ruby"],
-      matchUpdateTypes: ["!digest"],
+      matchUpdateTypes: ["!digest", "!major"],
       matchFileNames: [
         ".github/workflows/fossa.yml",
         ".github/workflows/installation-tests.yml",
@@ -51,12 +49,10 @@
     },
     {
       description: "Only perform update once both setup ruby and ruby is available. The group size needs to be kept in sync",
-      groupName: "Min-Ruby-sdk [Patches]",
-      branchTopic: "min-ruby-sdk",
-      commitMessageTopic: "Min-Ruby-sdk",
-      commitMessageExtra: "[Patches]",
+      groupName: "Min Ruby-sdk [Patches]",
+      dependencyDashboardCategory: "Min Ruby Runtime",
       matchDepNames: ["ruby/setup-ruby", "ruby"],
-      matchUpdateTypes: ["!digest"],
+      matchUpdateTypes: ["!digest", "!major"],
       matchFileNames: [
         ".github/workflows/ci-checks-local.yml",
         ".github/workflows/ci-markdown-checks.yml",
@@ -87,8 +83,24 @@
       separateMultipleMinor: true,
     },
     {
+      description: "Group latest ruby updates into a single update.",
+      groupName: "Latest Ruby-sdk [Upgrade]",
+      dependencyDashboardCategory: "Latest Ruby Runtime",
+      matchDepNames: ["ruby"],
+      matchFileNames: [
+        ".github/workflows/fossa.yml",
+        ".github/workflows/installation-tests.yml",
+        ".github/workflows/release-*.yml",
+      ],
+      matchUpdateTypes: ["minor", "major"],
+      prBodyNotes: [
+        ":exclamation: The new latest version needs to be added to the versions being tested in .github/actions/test_gem/action.yml.",
+      ],
+      draftPR: true,
+    },
+    {
       description: "Group min ruby updates into a single update which needs to be approved via the dashboard.",
-      groupName: "Min-Ruby-sdk",
+      groupName: "Min Ruby-sdk [Upgrade]",
       dependencyDashboardCategory: "Min Ruby Runtime",
       matchDepNames: ["ruby"],
       matchFileNames: [
@@ -96,6 +108,8 @@
         ".github/workflows/ci-checks-local.yml",
         "**/*.gemspec",
         "Dockerfile",
+        "examples/**/Dockerfile",
+        "**/examples/Dockerfile",
       ],
       matchUpdateTypes: ["minor", "major"],
       dependencyDashboardApproval: true,
