@@ -2,7 +2,15 @@ ls:
   "{helpers,instrumentation,processor,propagator,resources,sampler}":
     .dir: snake_case
     "*":
-      "*.gemspec": exists:1
+      Appraisals: exists:1
+      Gemfile: exists:1
+      LICENSE: exists:1
+      Rakefile: exists:1
+      ".gemspec": regex[opentelemetry-${0}-${1}] | exists:1
+      ".md": regex[CHANGELOG|README] | exists:2
+      ".dir": regex:[example|src|test]
+      test:
+        ".rb": regex:[test_helper] | exists:1
 
 ignore:
   - .git
