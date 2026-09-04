@@ -16,3 +16,7 @@ permissions:
 jobs:
   filesystem:
     uses: ./.github/workflows/file_review-filesystem.yml
+  checks:
+    uses: ./.github/workflows/ci-markdown-checks.yml
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -7,9 +7,8 @@ ls:
       .md: regex:(CHANGELOG|README) | exists:2
       .rubocop.yml: exists:1
       .yardopts: exists:1
-      .dir: regex:!(.docker|example|lib|test) | exists:0
       "{.docker,example,lib,test}":
-        .dir: snake_case
+        .dir: lowercase
 
 ignore:
   - .git
