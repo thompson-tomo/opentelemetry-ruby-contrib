@@ -3,6 +3,9 @@ name: File System
 on:
   workflow_call:
 
+permissions:
+  contents: read
+
 jobs:
   automated-checks:
     runs-on: ubuntu-24.04
