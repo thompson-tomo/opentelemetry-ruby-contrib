@@ -3,12 +3,11 @@ ls:
     .dir: snake_case
     "*":
       .: regex:(Appraisals|Gemfile|LICENSE|Rakefile) | exists:4
-      .gemspec: regex:(opentelemetry-${0}-${1}) | exists:1
+      .gemspec: regex:(opentelemetry-${1}-${0}|opentelemetry-resource-detector-${0}) | exists:1
       .md: regex:(CHANGELOG|README) | exists:2
       .rubocop.yml: exists:1
       .yardopts: exists:1
-      "*":
-        .dir: regex:(.docker|example|lib|test)
+      .dir: regex:!(.docker|example|lib|test) | exists:0
       "{.docker,example,lib,test}":
         .dir: snake_case
 
