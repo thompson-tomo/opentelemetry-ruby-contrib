@@ -19,4 +19,4 @@ jobs:
   checks:
     uses: ./.github/workflows/ci-markdown-checks.yml
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      abc: ${{ secrets.GITHUB_TOKEN }}
