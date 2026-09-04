@@ -1,8 +1,7 @@
 name: File Checks
 
 on:
-  pull_request:
-  merge_group:
+  workflow_call:
 
 permissions:
   contents: read

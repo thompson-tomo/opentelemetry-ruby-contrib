@@ -1,0 +1,9 @@
+ls:
+  "{helpers,instrumentation,processor,propagator,resources,sampler}":
+    .dir: snake_case
+    "*":
+      Appraisals: exist 1
+
+ignore:
+  - .git
+  - node_modules
