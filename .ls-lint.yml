@@ -2,12 +2,11 @@ ls:
   "{helpers,instrumentation,processor,propagator,resources,sampler}":
     .dir: snake_case
     "*":
-      # Appraisals: exists:1
-      # Gemfile: exists:1
-      # LICENSE: exists:1
-      # Rakefile: exists:1
+      .: regex:(Appraisals|Gemfile|LICENSE|Rakefile) | exists:4
       .gemspec: regex:(opentelemetry-${0}-${1}) | exists:1
       .md: regex:(CHANGELOG|README) | exists:2
+      .rubocop.yml: exists:1
+      .yardopts: exists:1
       .dir: regex:(example|src|test)
       example:
         .dir: snake_case
