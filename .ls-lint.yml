@@ -2,7 +2,7 @@ ls:
   "{helpers,instrumentation,processor,propagator,resources,sampler}":
     .dir: snake_case
     "*":
-      Appraisals: exist 1
+      "*.gemspec": exists:1
 
 ignore:
   - .git
