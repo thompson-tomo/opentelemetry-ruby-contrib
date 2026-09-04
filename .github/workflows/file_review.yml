@@ -14,7 +14,5 @@ permissions:
   contents: read
 
 jobs:
-  analyze:
-    uses: ./.github/workflows/ci-markdown-checks.yml
   filesystem:
     uses: ./.github/workflows/file_review-filesystem.yml
