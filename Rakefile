@@ -69,7 +69,7 @@ task :check_labeler_config do
     parent_dir  = gem[:dir]
     name = gem[:name]
 
-    labeler_key = parent_dir.tr("/", "-")
+    labeler_key = name.sub(/^opentelemetry-/, "")
     expected_glob = "#{parent_dir}/**"
 
     # --- Labeler key existence ---
@@ -148,7 +148,7 @@ def discover_gems
        EXCLUDED_DIRS.any? { |d| path.include?("/#{d}/") || path.start_with?("#{d}/") }
      }
      .map { |gemspec|
-       { dir: File.dirname(gemspec), name: gemspec }
+       { dir: File.dirname(gemspec), name: File.basename(gemspec, ".gemspec") }
      }
      .sort_by { |h| h[:dir] }
 end
