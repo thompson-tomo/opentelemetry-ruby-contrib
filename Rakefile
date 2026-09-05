@@ -95,7 +95,8 @@ task :check_labeler_config do
 
     # --- compose.yml rule ---
     compose_file = File.join(parent_dir, "test", "compose.yml")
-    if File.exist?(compose_file)
+    docker_dir = File.join(parent_dir, ".docker")
+    if File.exist?(compose_file) && !Dir.exist?(docker_dir)
       unless globs.any? { |glob| glob.start_with?(".docker/infra") }
         puts "::error:: compose.yml found for #{parent_dir}/test, but labeler key #{labeler_key} missing .docker/infra/** glob"
         issue_count += 1
