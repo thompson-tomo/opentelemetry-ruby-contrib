@@ -103,6 +103,8 @@ task :check_labeler_config do
         issue_count += 1
       end
     end
+  end
+
   puts "Issues: #{issue_count}"
 
   abort if issue_count > 0
