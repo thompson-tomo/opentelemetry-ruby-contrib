@@ -17,7 +17,7 @@ jobs:
   filesystem:
     uses: ./.github/workflows/file_review-filesystem.yml
   ci:
-    uses: .github/workflows/file_review-ci_setup.yml
+    uses: ./.github/workflows/file_review-ci_setup.yml
   checks:
     uses: ./.github/workflows/ci-markdown-checks.yml
     secrets:
