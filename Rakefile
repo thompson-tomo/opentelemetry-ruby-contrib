@@ -63,8 +63,6 @@ task :check_labeler_config do
     labeler == {}
   end
 
-  toys_by_name = toys.fetch("gems", []).map { |g| [g["name"], g] }.to_h
-
   issue_count = 0
 
   discover_gems.each do |gem|
