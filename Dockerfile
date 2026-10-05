@@ -50,20 +50,10 @@ ENV TMPDIR=/var/tmp
 RUN addgroup -S -g "${APP_GID}" "${APP_GROUP}" && \
     adduser -S -g "${APP_GROUP}" -u "${APP_UID}" "${APP_USER}"
 
-RUN mkdir -p "${HOME}/.local/bin"
+COPY --chown="${APP_USER}:${APP_GROUP}" mise.toml /app/mise.toml
 
-RUN curl -fsSL https://mise.run  | sh
+USER "${APP_USER}"
 
-RUN chmod 755 /root/.local/bin/mise
-
-# Ensure mise is available in PATH during build
-ENV PATH="/root/.local/bin:${PATH}"
-
-# Ensure mise loads its environment
-RUN echo 'eval "$(mise activate bash)"' >> /root/.bashrc
-RUN echo 'eval "$(mise activate sh)"' >> /root/.profile
-
-COPY mise.toml /app/mise.toml
 # Configure Bundler and PATH
 ENV LANG=C.UTF-8 \
     GEM_HOME=/bundle \
@@ -75,13 +65,15 @@ ENV BUNDLE_APP_CONFIG="${BUNDLE_PATH}" \
     BUNDLE_GEMFILE=Gemfile
 ENV PATH="${APP_DIR}/bin:${BUNDLE_BIN}:/home/${APP_USER}/.local/bin:${PATH}"
 
-RUN mise trust "${APP_DIR}/mise.toml"
+RUN curl -fsSL https://mise.run | sh && \
+    echo 'eval "$(mise activate bash)"' >> ${HOME}/.bashrc
 
 WORKDIR "${APP_DIR}"
 
+RUN mise trust "${APP_DIR}/mise.toml"
 RUN mise install
 
-USER "${APP_USER}"
+WORKDIR "${APP_DIR}"
 
 # Commands will be supplied via `docker-compose`
 CMD []
